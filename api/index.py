@@ -53,7 +53,11 @@ def similarity(request: SearchRequest):
 
     return {
         "results": [
-            {"id": doc_id, "score": float(score)}
+            {
+                "id": doc_id,
+                "score": float(score),
+                "content": DOCUMENTS[doc_id]
+            }
             for score, doc_id in final
         ]
     }
